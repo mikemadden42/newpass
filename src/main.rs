@@ -8,7 +8,7 @@ fn main() {
         let length: usize = match argument.parse() {
             Ok(num) => num,
             Err(_) => {
-                eprintln!("Error: Couldn't parse '{argument}' as a valid number");
+                eprintln!("Error: Could not parse '{argument}' as a valid number");
                 process::exit(1);
             }
         };
