@@ -5,12 +5,11 @@ use std::{env, process};
 fn main() {
     for argument in env::args().skip(1) {
         // Attempt to parse the argument into an integer
-        let length: usize = match argument.parse() {
-            Ok(num) => num,
-            Err(_) => {
-                eprintln!("Error: Could not parse '{argument}' as a valid number");
-                process::exit(1);
-            }
+        let length: usize = if let Ok(num) = argument.parse() {
+            num
+        } else {
+            eprintln!("Error: Could not parse '{argument}' as a valid number");
+            process::exit(1);
         };
 
         // Generate random string of given length
