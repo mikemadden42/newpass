@@ -1,5 +1,5 @@
-use rand::distributions::Alphanumeric;
-use rand::{thread_rng, Rng};
+use rand::distr::Alphanumeric;
+use rand::{rng, Rng};
 use std::{env, process};
 
 fn main() {
@@ -14,7 +14,7 @@ fn main() {
         };
 
         // Generate random string of given length
-        let rand_string: String = thread_rng()
+        let rand_string: String = rng()
             .sample_iter(&Alphanumeric)
             .take(length)
             .map(char::from)
